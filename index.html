@@ -1074,17 +1074,16 @@
       }
     }
 
-   function startYT() {
+ function startYT() {
   if (!ytFrame) {
     ytFrame = document.createElement('iframe');
     ytFrame.allow = 'autoplay; encrypted-media';
-    ytFrame.style.cssText = 'display:none;width:0;height:0;border:0';
+    ytFrame.width = '1';
+    ytFrame.height = '1';
+    ytFrame.style.cssText = 'position:fixed;bottom:4rem;right:1rem;opacity:0.01;border:0;z-index:999';
     document.body.appendChild(ytFrame);
   }
   ytFrame.src = SC_EMBED_URL;
-}
-function stopYT() {
-  if (ytFrame) { ytFrame.src = ''; }
 }
 
     function startMusic() {
@@ -1095,13 +1094,13 @@ function stopYT() {
       musicPlaying = true;
     }
 
-    function stopMusic() {
-      if (YT_EMBED_URL) { stopYT(); }
-      else              { stopWebAudioMelody(); }
-      musicBtn.textContent = '🎵';
-      musicBtn.classList.remove('playing');
-      musicPlaying = false;
-    }
+     function stopMusic() {
+  if (SC_EMBED_URL) { stopYT(); }
+  else              { stopWebAudioMelody(); }
+  musicBtn.textContent = '🎵';
+  musicBtn.classList.remove('playing');
+  musicPlaying = false;
+}
 
     musicBtn.addEventListener('click', () => {
       musicPlaying ? stopMusic() : startMusic();
