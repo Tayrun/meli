@@ -1074,21 +1074,18 @@
       }
     }
 
-    function startYT() {
-      if (!ytFrame) {
-        ytFrame = document.createElement('iframe');
-        ytFrame.src    = YT_EMBED_URL;
-        ytFrame.allow  = 'autoplay';
-        ytFrame.style.cssText = 'display:none;width:0;height:0;border:0';
-        document.body.appendChild(ytFrame);
-      } else {
-        ytFrame.src = YT_EMBED_URL;
-      }
-    }
-
-    function stopYT() {
-      if (ytFrame) { ytFrame.src = ''; }
-    }
+   function startYT() {
+  if (!ytFrame) {
+    ytFrame = document.createElement('iframe');
+    ytFrame.allow = 'autoplay; encrypted-media';
+    ytFrame.style.cssText = 'display:none;width:0;height:0;border:0';
+    document.body.appendChild(ytFrame);
+  }
+  ytFrame.src = SC_EMBED_URL;
+}
+function stopYT() {
+  if (ytFrame) { ytFrame.src = ''; }
+}
 
     function startMusic() {
       if (SC_EMBED_URL) { startYT(); }
