@@ -1007,7 +1007,8 @@
       Ejemplo: https://www.youtube.com/embed/VIDEO_ID?autoplay=1&loop=1&playlist=VIDEO_ID
       Déjala vacía para usar la melodía generada con Web Audio.
     */
-    const YT_EMBED_URL = 'https://www.youtube.com/embed/MzNduKt0ylU?autoplay=1&loop=1&playlist=MzNduKt0ylU';
+    const YT_EMBED_URL = '';
+    const SC_EMBED_URL = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A246208033&auto_play=true&hide_related=true&show_comments=false&show_user=false&visual=false';
 
     const musicBtn = document.getElementById('music-btn');
     let musicPlaying = false;
@@ -1090,7 +1091,7 @@
     }
 
     function startMusic() {
-      if (YT_EMBED_URL) { startYT(); }
+      if (SC_EMBED_URL) { startYT(); }
       else              { startWebAudioMelody(); }
       musicBtn.textContent = '🎶';
       musicBtn.classList.add('playing');
